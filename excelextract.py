@@ -28,7 +28,6 @@ for i in range(2, n):
 	DoBs.append(sheet.cell(row = i, column = 4).value)
 	Genders.append(sheet.cell(row = i, column = 5).value)	
 
-
 # Loop through Address list, split strings into lists 
 for i in range(0, n-2):
 	ListOfLists.append(Addresses[i].split())
