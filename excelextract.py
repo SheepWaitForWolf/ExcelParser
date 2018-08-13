@@ -10,7 +10,7 @@ wbout = openpyxl.load_workbook('Out.xlsx')
 sheet = wb['data']
 outsheet = wbout['Sheet1']
 
-n = sheet.max_row
+n = sheet.max_row 
 
 # Create arrays to store data from input file
 Names = []
@@ -20,24 +20,20 @@ Genders = []
 Postcodes = []
 ListOfLists = []
 
-
 # Read from Excel file and populate lists with Data
-for i in range(2, n): 
+for i in range(2, n+1): 
 	Names.append(sheet.cell(row = i, column = 1).value)
 	Addresses.append(sheet.cell(row = i, column = 2).value)	
 	DoBs.append(sheet.cell(row = i, column = 4).value)
-	Genders.append(sheet.cell(row = i, column = 5).value)	
+	Genders.append(sheet.cell(row = i, column = 5).value)
 
 # Loop through Address list, split strings into lists 
-for i in range(0, n-2):
+for i in range(n-1):
 	ListOfLists.append(Addresses[i].split())
 
 # Loop through ListofLists and combine last two elements into Postcodes list	
-for i in range(0, n-2):
+for i in range(n-1):
 	Postcodes.append(ListOfLists[i][-2] + " " + ListOfLists[i][-1])
-
-print(ListOfLists)
-print(Postcodes)
 
 # Write to Excel output file
 for i in range(0, len(Names)):
